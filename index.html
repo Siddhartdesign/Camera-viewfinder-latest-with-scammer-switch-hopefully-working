@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camera Annotator</title>
+
+<style>
+  body { 
+    margin:0; 
+    background:#000; 
+    overflow:hidden; 
+    user-select:none; 
+    touch-action:none;
+  }
+
+  #video, #canvas {
+    position:absolute;
+    top:0; left:0;
+    width:100vw; 
+    height:100vh;
+    object-fit:cover;
+  }
+
+  #toolbar {
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    background:rgba(0,0,0,0.55);
+    padding:10px 14px;
+    border-radius:14px;
+    backdrop-filter:blur(10px);
+  }
+
+  button {
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    background:#ffffffcc;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+  }
+
+  .active {
+    background:#4da3ff;
+    color:#fff;
+  }
+</style>
+
+</head>
+<body>
+
+<video id="video" autoplay playsinline></video>
+<canvas id="canvas"></canvas>
+
+<!-- TOOLBAR (Dot, Vertical, Horizontal, Capture, Switch) -->
+<div id="toolbar">
+  <button id="dotBtn" class="active">Dot</button>
+  <button id="vertBtn">│</button>
+  <button id="horiBtn">—</button>
+  <button id="captureBtn">📸</button>
+  <button id="switchBtn">Switch</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
